@@ -3,22 +3,77 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>clear-doc-link</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
+    <title>TeleCare - Rural Telemedicine | Healthcare for Everyone</title>
+    <meta name="description" content="Accessible telemedicine for rural India. Video consultations, emergency care, and health records in multiple languages. Works on 2G networks. Healthcare for everyone, everywhere." />
+    <meta name="author" content="TeleCare Rural Healthcare" />
 
-    <meta property="og:title" content="clear-doc-link" />
-    <meta property="og:description" content="Lovable Generated Project" />
+    <meta property="og:title" content="TeleCare - Rural Telemedicine Platform" />
+    <meta property="og:description" content="Connect with qualified doctors from your village. Video consultations, emergency care, and multilingual support designed for rural communities." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
+    <meta name="twitter:site" content="@TeleCareIndia" />
+    <meta name="twitter:title" content="TeleCare - Rural Healthcare Revolution" />
+    <meta name="twitter:description" content="Quality healthcare services for rural communities. Book appointments, video consultations, and emergency care in your language." />
     <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    
+    <!-- Additional SEO and accessibility meta tags -->
+    <meta name="keywords" content="telemedicine, rural healthcare, video consultation, emergency care, multilingual healthcare, 2G compatible, Indian villages, digital health" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://telecare-rural.lovable.app" />
   </head>
 
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Structured Data for Healthcare Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalOrganization",
+      "name": "TeleCare Rural Healthcare",
+      "description": "Telemedicine platform providing accessible healthcare services for rural communities in India",
+      "url": "https://telecare-rural.lovable.app",
+      "logo": "https://telecare-rural.lovable.app/logo.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-98765-43210",
+        "contactType": "customer service",
+        "availableLanguage": ["English", "Hindi", "Punjabi"]
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Rural India, Punjab Region"
+      },
+      "medicalSpecialty": [
+        "General Medicine",
+        "Emergency Medicine", 
+        "Telemedicine",
+        "Primary Care"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Healthcare Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "MedicalProcedure",
+              "name": "Video Consultation"
+            }
+          },
+          {
+            "@type": "Offer", 
+            "itemOffered": {
+              "@type": "MedicalProcedure",
+              "name": "Emergency Care"
+            }
+          }
+        ]
+      }
+    }
+    </script>
   </body>
 </html>
