@@ -8,9 +8,13 @@ All colors MUST be HSL for consistent theming across light/dark modes.
 
 @layer base {
   :root {
-    /* Core brand colors - medical blues and healing greens */
+    /* Core brand colors - improved readability */
     --background: 210 20% 98%;
-    --foreground: 213 31% 91%;
+    --foreground: 0 0% 20%;          /* Dark gray #333333 for body text */
+    
+    /* Heading colors - navy blue and deep green */
+    --heading-navy: 200 67% 15%;     /* Dark navy blue #1A2E35 */
+    --heading-green: 162 85% 22%;    /* Deep green #0A6847 */
     
     /* Medical brand colors */
     --primary: 210 100% 50%;        /* Medical blue */
@@ -23,12 +27,16 @@ All colors MUST be HSL for consistent theming across light/dark modes.
     --secondary-light: 142 50% 85%;  /* Light green */
     
     /* Emergency colors */
-    --emergency: 0 84% 60%;          /* Emergency red */
+    --emergency: 0 68% 48%;          /* Bright red #D62828 */
     --emergency-foreground: 0 0% 100%;
     --warning: 43 96% 56%;           /* Warning amber */
     --warning-foreground: 0 0% 100%;
     --success: 142 71% 45%;          /* Success green */
     --success-foreground: 0 0% 100%;
+    
+    /* AI Symptom Checker */
+    --symptom-checker: 180 100% 25%; /* Teal #008080 */
+    --symptom-checker-foreground: 0 0% 100%;
     
     /* UI foundation */
     --card: 0 0% 100%;

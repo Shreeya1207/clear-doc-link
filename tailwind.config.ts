@@ -19,6 +19,12 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        "heading-navy": "hsl(var(--heading-navy))",
+        "heading-green": "hsl(var(--heading-green))",
+        "symptom-checker": {
+          DEFAULT: "hsl(var(--symptom-checker))",
+          foreground: "hsl(var(--symptom-checker-foreground))",
+        },
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",

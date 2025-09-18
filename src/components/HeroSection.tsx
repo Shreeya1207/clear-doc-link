@@ -9,6 +9,7 @@ import {
   MapPin 
 } from 'lucide-react';
 import heroImage from '@/assets/telemedicine-hero.jpg';
+import AISymptomChecker from './AISymptomChecker';
 
 const HeroSection: React.FC = () => {
   const stats = [
@@ -29,14 +30,14 @@ const HeroSection: React.FC = () => {
                 Rural Healthcare Revolution
               </div>
               
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-heading-navy leading-tight">
                 Healthcare
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
                   For Everyone
                 </span>
               </h1>
               
-              <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl leading-relaxed">
+              <p className="text-lg sm:text-xl text-foreground max-w-2xl leading-relaxed">
                 Connect with qualified doctors from your village. Book appointments, get consultations, 
                 and access emergency care - all in your language, even with slow internet.
               </p>
@@ -48,15 +49,19 @@ const HeroSection: React.FC = () => {
             </div>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button
-                size="lg"
-                className="btn-medical text-lg px-8 py-4 min-w-[200px]"
-                onClick={() => document.getElementById('appointment')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                <Calendar className="h-5 w-5 mr-2" />
-                Book Appointment
-              </Button>
+            <div className="flex flex-col xl:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button
+                  size="lg"
+                  className="bg-secondary hover:bg-secondary/90 text-white font-bold text-lg px-8 py-4 min-w-[200px]"
+                  onClick={() => document.getElementById('appointment')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  <Calendar className="h-5 w-5 mr-2" />
+                  Book Appointment
+                </Button>
+                
+                <AISymptomChecker />
+              </div>
               
               <Button
                 size="lg"
@@ -80,7 +85,7 @@ const HeroSection: React.FC = () => {
                   <p className="text-sm text-muted-foreground">Get instant help with one tap. Available 24/7.</p>
                 </div>
                 <Button
-                  className="btn-emergency"
+                  className="bg-emergency hover:bg-emergency/90 text-white font-bold animate-pulse"
                   onClick={() => document.getElementById('emergency')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Emergency
