@@ -16,20 +16,104 @@ const AISymptomChecker: React.FC = () => {
     if (!symptoms.trim()) return;
     
     setIsAnalyzing(true);
-    // Simulate AI analysis
+    
+    // Simple symptom analysis based on user input
     setTimeout(() => {
-      setResults({
-        possibleConditions: [
-          { name: 'Common Cold', probability: 'High', description: 'Viral infection affecting nose and throat' },
-          { name: 'Seasonal Allergy', probability: 'Medium', description: 'Allergic reaction to environmental triggers' },
-          { name: 'Flu', probability: 'Low', description: 'Influenza viral infection' }
-        ],
-        recommendations: [
-          'Rest and stay hydrated',
+      const userSymptoms = symptoms.toLowerCase();
+      let possibleConditions = [];
+      let recommendations = [];
+      let urgency = 'low';
+
+      // Body pain/muscle aches
+      if (userSymptoms.includes('body pain') || userSymptoms.includes('muscle') || userSymptoms.includes('ache')) {
+        possibleConditions.push(
+          { name: 'Muscle Strain', probability: 'High', description: 'Overuse or injury to muscle fibers' },
+          { name: 'Viral Infection', probability: 'Medium', description: 'Body aches often accompany viral infections' },
+          { name: 'Flu', probability: 'Medium', description: 'Influenza can cause widespread body aches' }
+        );
+        recommendations = [
+          'Rest and avoid strenuous activities',
+          'Apply heat or cold therapy to affected areas',
+          'Stay hydrated and get adequate sleep',
+          'Consider over-the-counter pain relievers if appropriate'
+        ];
+      }
+      // Headache symptoms
+      else if (userSymptoms.includes('headache') || userSymptoms.includes('head pain')) {
+        possibleConditions.push(
+          { name: 'Tension Headache', probability: 'High', description: 'Most common type of headache from stress or tension' },
+          { name: 'Dehydration', probability: 'Medium', description: 'Insufficient fluid intake can cause headaches' },
+          { name: 'Migraine', probability: 'Low', description: 'Severe headache often with other symptoms' }
+        );
+        recommendations = [
+          'Rest in a quiet, dark room',
+          'Stay well hydrated',
+          'Apply cold or warm compress to head',
+          'Manage stress levels'
+        ];
+      }
+      // Fever symptoms
+      else if (userSymptoms.includes('fever') || userSymptoms.includes('hot') || userSymptoms.includes('temperature')) {
+        possibleConditions.push(
+          { name: 'Viral Infection', probability: 'High', description: 'Common cause of fever and related symptoms' },
+          { name: 'Bacterial Infection', probability: 'Medium', description: 'May require antibiotic treatment' },
+          { name: 'Flu', probability: 'Medium', description: 'Influenza often presents with fever' }
+        );
+        recommendations = [
           'Monitor temperature regularly',
-          'Consult doctor if symptoms worsen'
-        ],
-        urgency: 'low'
+          'Stay hydrated with fluids',
+          'Rest and avoid physical exertion',
+          'Seek medical attention if fever persists or is very high'
+        ];
+        urgency = 'medium';
+      }
+      // Cough symptoms
+      else if (userSymptoms.includes('cough') || userSymptoms.includes('coughing')) {
+        possibleConditions.push(
+          { name: 'Common Cold', probability: 'High', description: 'Viral infection affecting nose and throat' },
+          { name: 'Allergies', probability: 'Medium', description: 'Allergic reaction to environmental triggers' },
+          { name: 'Bronchitis', probability: 'Low', description: 'Inflammation of the bronchial tubes' }
+        );
+        recommendations = [
+          'Stay hydrated to help thin mucus',
+          'Use a humidifier or breathe steam',
+          'Avoid irritants like smoke',
+          'Rest your voice and body'
+        ];
+      }
+      // Stomach/digestive issues
+      else if (userSymptoms.includes('stomach') || userSymptoms.includes('nausea') || userSymptoms.includes('vomit')) {
+        possibleConditions.push(
+          { name: 'Gastroenteritis', probability: 'High', description: 'Inflammation of the stomach and intestines' },
+          { name: 'Food Poisoning', probability: 'Medium', description: 'Illness from contaminated food or water' },
+          { name: 'Viral Stomach Bug', probability: 'Medium', description: 'Viral infection affecting digestive system' }
+        );
+        recommendations = [
+          'Stay hydrated with small, frequent sips',
+          'Rest and avoid solid foods initially',
+          'Try bland foods when feeling better',
+          'Seek medical attention if symptoms worsen'
+        ];
+      }
+      // Default for unclear symptoms
+      else {
+        possibleConditions.push(
+          { name: 'General Malaise', probability: 'Medium', description: 'Non-specific symptoms requiring further evaluation' },
+          { name: 'Viral Infection', probability: 'Medium', description: 'Common cause of various symptoms' },
+          { name: 'Stress/Fatigue', probability: 'Low', description: 'Physical manifestation of stress or exhaustion' }
+        );
+        recommendations = [
+          'Monitor symptoms closely',
+          'Rest and stay hydrated',
+          'Keep a symptom diary',
+          'Consult healthcare provider for proper evaluation'
+        ];
+      }
+
+      setResults({
+        possibleConditions,
+        recommendations,
+        urgency
       });
       setIsAnalyzing(false);
     }, 2000);
